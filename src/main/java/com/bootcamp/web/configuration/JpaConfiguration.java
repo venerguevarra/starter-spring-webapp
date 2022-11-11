@@ -37,7 +37,7 @@ public class JpaConfiguration {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
         factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
-        factoryBean.setPersistenceUnitName("webshoppe");
+        factoryBean.setPersistenceUnitName("sampledb.unit");
         factoryBean.setDataSource(dataSource());
         factoryBean.setPackagesToScan("com.bootcamp.web");
         factoryBean.setJpaProperties(hibernateProperties());

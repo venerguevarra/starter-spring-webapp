@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.bootcamp.web.entity.User;
+import com.bootcamp.web.entity.Post;
 
-public interface UserProfileRepository extends JpaRepository<User, UUID> {
+public interface PostRepository extends JpaRepository<Post, UUID> {
 }
