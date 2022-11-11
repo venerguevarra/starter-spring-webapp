@@ -1,3 +1,4 @@
+package com.bootcamp.web.configuration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
@@ -19,6 +20,7 @@ public class ApplicationInitializer implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
 
         ctx.register(ApplicationConfiguration.class);
+        ctx.register(JpaConfiguration.class);
 
         container.addListener(new ContextLoaderListener(ctx));
         container.addListener(new ContextCleanupListener());
@@ -43,7 +45,6 @@ public class ApplicationInitializer implements WebApplicationInitializer {
 
         @Override
         public void sessionDestroyed(HttpSessionEvent event) {
-
         }
 
     }

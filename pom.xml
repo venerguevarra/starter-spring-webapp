@@ -21,8 +21,9 @@
         <log4j.core.version>2.13.0</log4j.core.version>
         <commons.lang3.version>3.12.0</commons.lang3.version>
         <lombok.version>1.18.24</lombok.version>
-        <springframework.version>4.3.11.RELEASE</springframework.version>
-        <springdata.version>1.5.7.RELEASE</springdata.version>
+        <springframework.version>5.1.16.RELEASE</springframework.version>
+        <springdata.version>2.1.18.RELEASE</springdata.version>
+        <hibernate.version>5.3.6.Final</hibernate.version>
         <tiles.version>3.0.5</tiles.version>
         <junit.version>3.8.1</junit.version>
         <mockito.version>1.10.19</mockito.version>
@@ -91,6 +92,31 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>${springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${springdata.version}</version>
         </dependency>
         <!-- Apache Tiles -->
         <dependency>
