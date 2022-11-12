@@ -1,11 +1,9 @@
 package com.bootcamp.web.entity;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -14,22 +12,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = Post.TABLE_NAME)
+@Table(name = UserAccount.TABLE_NAME)
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Post extends AbstractEntity {
+public class UserAccount extends AbstractEntity {
     private static final long serialVersionUID = -2044753332567236782L;
 
-    protected final static String TABLE_NAME = "POSTS";
+    protected final static String TABLE_NAME = "USER_ACCOUNTS";
 
-    private String title;
+    private String username;
+    private String email;
+    private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
-
-    @ManyToMany(mappedBy = "likedPosts")
-    private Set<User> likes;
 
 }

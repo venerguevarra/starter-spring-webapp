@@ -25,9 +25,12 @@
         <springdata.version>2.1.18.RELEASE</springdata.version>
         <hibernate.version>5.3.6.Final</hibernate.version>
         <tiles.version>3.0.5</tiles.version>
-        <junit.version>3.8.1</junit.version>
-        <mockito.version>1.10.19</mockito.version>
         <jackson.version>2.9.2</jackson.version>
+        <junit.version>4.13.2</junit.version>
+        <mockito.version>1.10.19</mockito.version>
+        <selenium.version>4.6.0</selenium.version>
+        <webdrivermanager.version>5.3.1</webdrivermanager.version>
+        <maven.surefire.version>3.0.0-M7</maven.surefire.version>
     </properties>
 
     <dependencies>
@@ -88,16 +91,24 @@
             <artifactId>spring-core</artifactId>
             <version>${springframework.version}</version>
         </dependency>
+        <!-- Spring MVC libraries -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>${springframework.version}</version>
         </dependency>
-        <dependency>
+         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
+            <artifactId>spring-webmvc</artifactId>
             <version>${springframework.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+        <!-- hibernate libraries -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -154,17 +165,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${springframework.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+       <!-- Spring Object/XML Mapping Libraries -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-oxm</artifactId>
@@ -190,11 +191,29 @@
             <artifactId>jackson-jaxrs-json-provider</artifactId>
             <version>${jackson.version}</version>
         </dependency>
+        <!-- testing libraries -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+         <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
         </dependency>
     </dependencies>
 
@@ -244,6 +263,16 @@
                         </resource>
                     </webResources>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.version}</version>
+                <configuration>
+                    <parallel>all</parallel>
+                    <threadCount>10</threadCount>
+                    <parallel>all</parallel>
                 </configuration>
             </plugin>
         </plugins>
