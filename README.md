@@ -31,8 +31,12 @@ GRANT UNLIMITED TABLESPACE TO sample_db;
         factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
         factoryBean.setPersistenceUnitName("change_this_unit_name");
         factoryBean.setDataSource(dataSource());
-        factoryBean.setPackagesToScan("com.bootcamp.web");
+        factoryBean.setPackagesToScan("com.bootcamp.webapp.web");
         factoryBean.setJpaProperties(hibernateProperties());
         return factoryBean;
     }
 ```
+
+### Chrome Driver Download
+
+https://chromedriver.chromium.org/downloads

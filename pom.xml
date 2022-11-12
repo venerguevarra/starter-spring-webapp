@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.bootcamp</groupId>
+    <groupId>com.bootcamp.webapp</groupId>
     <artifactId>starter-spring-webapp</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
@@ -31,6 +31,7 @@
         <selenium.version>4.6.0</selenium.version>
         <webdrivermanager.version>5.3.1</webdrivermanager.version>
         <maven.surefire.version>3.0.0-M7</maven.surefire.version>
+        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
     </properties>
 
     <dependencies>
@@ -273,6 +274,23 @@
                     <parallel>all</parallel>
                     <threadCount>10</threadCount>
                     <parallel>all</parallel>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>2.16</version>
+                <configuration>
+                    <showSuccess>false</showSuccess>
+                    <outputDirectory>${basedir}/target/surefire-reports</outputDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <outputDirectory>${basedir}/target/surefire-reports</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>

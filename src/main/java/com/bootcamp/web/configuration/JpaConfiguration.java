@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = { "com.bootcamp.web.repository" })
+@EnableJpaRepositories(basePackages = { "com.bootcamp.webapp.web.repository" })
 @PropertySource(value = { "classpath:application.properties" })
 public class JpaConfiguration {
     @Autowired
@@ -39,7 +39,7 @@ public class JpaConfiguration {
         factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
         factoryBean.setPersistenceUnitName("sampledb.unit");
         factoryBean.setDataSource(dataSource());
-        factoryBean.setPackagesToScan("com.bootcamp.web");
+        factoryBean.setPackagesToScan("com.bootcamp.webapp.web");
         factoryBean.setJpaProperties(hibernateProperties());
         return factoryBean;
     }
