@@ -32,7 +32,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "com.bootcamp.webapp.web" })
+@ComponentScan(basePackages = { "com.bootcamp.web" })
 @PropertySource(value = { "classpath:application.properties" })
 public class ApplicationConfiguration implements WebMvcConfigurer {
 

@@ -1,35 +1,43 @@
 package com.bootcamp.web.entity;
 
-import java.util.Set;
+import java.io.Serializable;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.ManyToMany;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = Post.TABLE_NAME)
+@Table(name = "POSTS")
 @Setter
 @Getter
+@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class Post extends AbstractEntity {
-    private static final long serialVersionUID = -2044753332567236782L;
+public class Post implements Serializable {
+    private static final long serialVersionUID = -7053658305583615432L;
 
-    protected final static String TABLE_NAME = "POSTS";
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "custom_post_sequence")
+    @SequenceGenerator(sequenceName = "post_sequence", name = "custom_post_sequence", allocationSize = 1)
+    private Long id;
+    @Column(columnDefinition = "VARCHAR(150)", nullable = false)
     private String title;
+    @Column(columnDefinition = "DATE", nullable = false)
+    private Date postingDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
-
-    @ManyToMany(mappedBy = "likedPosts")
-    private Set<User> likes;
-
 }
