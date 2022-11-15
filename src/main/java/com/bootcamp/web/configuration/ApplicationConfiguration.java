@@ -55,6 +55,7 @@ public class ApplicationConfiguration implements WebMvcConfigurer {
         resolver.setContentNegotiationManager(manager);
         List<ViewResolver> resolvers = new ArrayList<ViewResolver>();
         resolvers.add(jspViewResolver());
+        resolvers.add(redirectViewResolver());
         resolvers.add(tilesViewResolver());
         resolver.setViewResolvers(resolvers);
         return resolver;
@@ -66,6 +67,15 @@ public class ApplicationConfiguration implements WebMvcConfigurer {
         tileViewResolver.setOrder(1);
         return tileViewResolver;
     }
+    
+    @Bean
+    public ViewResolver redirectViewResolver() {
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        viewResolver.setViewClass(JstlView.class);
+        viewResolver.setPrefix("/app");
+        viewResolver.setOrder(2);
+        return viewResolver;
+    }
 
     @Bean
     public ViewResolver jspViewResolver() {
@@ -73,7 +83,7 @@ public class ApplicationConfiguration implements WebMvcConfigurer {
         viewResolver.setViewClass(JstlView.class);
         viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setSuffix(".jsp");
-        viewResolver.setOrder(2);
+        viewResolver.setOrder(3);
         return viewResolver;
     }
 
