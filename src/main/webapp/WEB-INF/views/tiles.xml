@@ -20,7 +20,7 @@
         <put-attribute name="title" value="Login Form"/>
         <put-attribute name="body" value="/WEB-INF/views/pages/login/form.jsp"/>
     </definition>
-    
+
     <definition name="studentForm" extends="main_template">
         <put-attribute name="title" value="Student Form"/>
         <put-attribute name="body" value="/WEB-INF/views/pages/student/form.jsp"/>
@@ -29,6 +29,11 @@
     <definition name="studentSuccess" extends="main_template">
         <put-attribute name="title" value="Student Registration::Succesful"/>
         <put-attribute name="body" value="/WEB-INF/views/pages/student/success.jsp"/>
+    </definition>
+
+    <definition name="postForm" extends="main_template">
+        <put-attribute name="title" value="Post Form"/>
+        <put-attribute name="body" value="/WEB-INF/views/pages/post/form.jsp"/>
     </definition>
 
 </tiles-definitions> 
