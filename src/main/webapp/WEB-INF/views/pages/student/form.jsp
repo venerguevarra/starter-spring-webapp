@@ -13,6 +13,10 @@
     <form:input path="lastName" />
     <form:errors path="lastName" cssClass="error" />
     <br/>
+    <form:label path="password">Password</form:label>
+    <form:password path="password" />
+    <form:errors path="password" cssClass="error" />
+    <br/>
     <form:label path="age">Age</form:label>
     <form:input path="age" />
     <form:errors path="age" cssClass="error" />

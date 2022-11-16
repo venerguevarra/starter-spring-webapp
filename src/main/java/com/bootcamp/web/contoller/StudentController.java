@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bootcamp.web.bean.StudentForm;
 import com.bootcamp.web.entity.User;
+import com.bootcamp.web.entity.UserAccount;
 import com.bootcamp.web.service.UserRegistrationService;
 
 @Controller
@@ -46,6 +47,10 @@ public class StudentController {
         user.setFirstName(studentForm.getFirstName());
         user.setLastName(studentForm.getLastName());
         user.setEmail(studentForm.getEmail());
+
+        UserAccount userAccount = new UserAccount();
+        userAccount.setPassword(studentForm.getPassword());
+        user.setUserAccount(userAccount);
 
         try {
             userRegistrationService.register(user);

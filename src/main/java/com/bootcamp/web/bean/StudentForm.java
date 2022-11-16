@@ -43,4 +43,7 @@ public class StudentForm {
     @DateTimeFormat(pattern = "MM/dd/yyyy")
     @Past(message = "Invalid birth date")
     private Date birthDate;
+
+    @NotEmpty(message = "Password is required")
+    private String password;
 }
