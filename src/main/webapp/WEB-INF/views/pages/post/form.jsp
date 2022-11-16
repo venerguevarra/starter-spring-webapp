@@ -15,6 +15,10 @@
 </form:form>
 <br/>
 <c:forEach items="${posts}" var="post">
+<<<<<<< HEAD
     Post <c:out value = "${post.id}"/> <c:out value="${post.title}"/> <c:out value="${post.postingDate}"/><br/>
+=======
+    Post <c:out value = "${post.id}"/> <c:out value="${post.title}"/>
+>>>>>>> branch 'master' of git@github.com:venerguevarra/starter-spring-webapp.git
 </c:forEach>
 <br/>
