@@ -1,5 +1,7 @@
 package com.bootcamp.web.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
     private UserRepository userRepository;
 
     @Override
+    @Transactional
     public void register(User user) {
         if (user == null) {
             throw new IllegalArgumentException("User cannot be null");
