@@ -1,9 +1,11 @@
 package com.bootcamp.web.service;
 
-import com.bootcamp.web.bean.UserPostListBean;
+import java.util.List;
+
+import com.bootcamp.web.entity.Post;
 
 public interface UserPostService {
-    UserPostListBean getAllPosts();
+    List<Post> getAllPosts();
 
     void newPost(Long userId, String title);
 }
