@@ -35,7 +35,8 @@ public class PostController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String submitForm(@Valid @ModelAttribute("postForm") PostForm postForm, BindingResult bindingResult, Model model) {
+    public String submitForm(@Valid @ModelAttribute("postForm") PostForm postForm, BindingResult bindingResult, ModelMap model) {
+        model.addAttribute("userPostList", toUserPostListBean(userPostService.getAllPosts()));
         if (bindingResult.hasErrors()) {
             return "postForm";
         }
