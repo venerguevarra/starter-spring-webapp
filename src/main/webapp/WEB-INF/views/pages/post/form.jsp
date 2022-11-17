@@ -14,11 +14,27 @@
 	<input type="submit" value="Post" />
 </form:form>
 <br/>
-<c:forEach items="${posts}" var="post">
-<<<<<<< HEAD
-    Post <c:out value = "${post.id}"/> <c:out value="${post.title}"/> <c:out value="${post.postingDate}"/><br/>
-=======
-    Post <c:out value = "${post.id}"/> <c:out value="${post.title}"/>
->>>>>>> branch 'master' of git@github.com:venerguevarra/starter-spring-webapp.git
-</c:forEach>
+<table>
+    <tr>
+        <td>User ID</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Email</td>
+        <td>Post ID</td>
+        <td>Title</td>
+        <td>Date</td>
+    </tr>
+    <c:forEach items="${userPostList.posts}" var="post">
+        <tr>
+	        <td><c:out value = "${post.userId}"/></td>
+	        <td><c:out value = "${post.firstName}"/></td>
+	        <td><c:out value = "${post.lastName}"/></td>
+	        <td><c:out value = "${post.email}"/></td>
+	        <td><c:out value = "${post.postId}"/></td>
+	        <td><c:out value = "${post.title}"/></td>
+	        <td><c:out value = "${post.postingDate}"/></td>
+        </tr>
+    </c:forEach>
+    
+</table>
 <br/>

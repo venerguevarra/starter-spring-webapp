@@ -38,6 +38,6 @@ public class Post implements Serializable {
     @Column(columnDefinition = "DATE", nullable = false)
     private Date postingDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private User user;
 }

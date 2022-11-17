@@ -24,7 +24,7 @@ public class PostController {
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView showForm(ModelMap modelMap) {
         modelMap.addAttribute("postForm", new PostForm());
-        modelMap.addAttribute("posts", userPostService.getAllPosts());
+        modelMap.addAttribute("userPostList", userPostService.getAllPosts());
         return new ModelAndView("postForm");
     }
 
